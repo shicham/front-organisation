@@ -1,0 +1,24 @@
+{
+        "bulkAction":"Bulk Action",
+        "Apply":"Apply",
+        "Delete":"Delete",
+        "Activate":"Activate",
+        "Desactivate":"Desactivate",
+        "SHOW": "SHOW",
+        "ORDER":"ORDER",
+        "DESC":"DESC",
+        "ASC":"ASC",
+        "Type":"Type",
+        "Name":"Name",
+        "Hierarchy":"Hierarchy",
+        "Manager":"Manager",
+        "viewDetail": "View details",
+        "Organisation": "Organisation",
+        "InternalCode": "InternalCode",
+        "status": {
+        		"Status":"Status",
+        		"active":"Active",
+        		"inactive":"Inactive"
+        }
+  
+  }

@@ -1,0 +1,68 @@
+$white:    #fff !default;
+$gray-100: #8091a7 !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dbdfea !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #526484 !default;
+$black:    #1c2b46 !default;
+
+$grays: () !default;
+$grays: map-merge(
+  (
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900
+  ),
+  $grays
+);
+
+$blue: #559bfb;
+$indigo: #2c3782;
+$purple: #816bff;
+$pink: #ff63a5;
+$red: #e85347;
+$orange: #ffa353;
+$yellow: #f4bd0e;
+$green: #1ee0ac;
+$teal: #20c997;
+$cyan: #09c2de;
+$white: #fff;
+$gray: #6c757d;
+$gray-dark: #343a40;
+$primary: #6576ff;
+$secondary: #364a63;
+$success: #1ee0ac;
+$info: #09c2de;
+$warning: #f4bd0e;
+$danger: #e85347;
+$dark: #1c2b46;
+$gray: #8091a7;
+$light: #e5e9f2;
+$lighter: #f5f6fa;
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1540px;
+$font-family-sans-serif: (Roboto, sans-serif), "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+
+$body-bg: #f5f6fa;
+
+$line-height-base:            1.25 !default;
+
+$alert-border-radius:   4px;  
+
+$table-hover-bg: #f8f9fc;

@@ -1,0 +1,18 @@
+{
+    "message": "hello i18n !!",
+    "SHOW": "SHOW",
+    "ORDER":"ORDER",
+    "DESC":"DESC",
+    "ASC":"ASC",
+    "Type":"Type",
+    "Hierarchy":"Hierarchy",
+    "Manager":"Manager",
+    
+    "OOrganisation": "Organisation",
+    "InternalCode": "InternalCode",
+    "status": {
+    		"Status":"Status",
+    		"active":"Active",
+    		"inactive":"Inactive"
+    	}
+  }
