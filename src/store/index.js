@@ -12,7 +12,8 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
   // set './app.js' => 'app'
   const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
   const value = modulesFiles(modulePath)
-  modules[moduleName.split("/")[0]] = value.default
+  
+  modules[moduleName.split("/")[2].split(".")[0]] = value.default
   if(modules[modules] && !modules[moduleName].isStore){
     return;
   }

@@ -10,16 +10,22 @@
           <ul class="app-menu app-menu-md">
             <li class="app-menu-heading"><h6 class="overline-title text-primary-alt">DASHBOARDS</h6></li>
             <li class="app-menu-item">
-              <a href="/demo3/index.html" class="app-menu-link" data-original-title="" title="">
+              <router-link :to="{ name: 'UserListing' }" class="app-menu-link" data-original-title="" title="">
                 <span class="app-menu-icon"><b-icon icon="pie-chart" class="icon"></b-icon></span>
                 <span class="app-menu-text">Default Dashboard</span>
-              </a>
+              </router-link>
             </li>
             <li class="app-menu-item">
-              <a href="/demo3/index.html" class="app-menu-link" data-original-title="" title="">
+              <router-link :to="{ name: 'OrganisationListing' }" class="app-menu-link" data-original-title="" title="">
                 <span class="app-menu-icon"><b-icon icon="markdown" class="icon"></b-icon></span>
-                <span class="app-menu-text">User Manage</span>
-              </a>
+                <span class="app-menu-text">Organisation</span>
+              </router-link>
+            </li>
+            <li class="app-menu-item">
+              <router-link :to="{ name: 'UserListing' }" class="app-menu-link" data-original-title="" title="">
+                <span class="app-menu-icon"><b-icon icon="pie-chart" class="icon"></b-icon></span>
+                <span class="app-menu-text">Utilisateur</span>
+              </router-link>
             </li>
             <li class="app-menu-item">
               <a href="/demo3/index.html" class="app-menu-link" data-original-title="" title="">

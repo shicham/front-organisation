@@ -45,6 +45,7 @@ export default {
 </script>
 
 <style lang="scss">
+  @import "../../assets/fonts/Nioicon.css";
   @import "../../assets/fonts/fonts.css";
   @import "../../assets/custom.scss";
   @import "../../../node_modules/bootstrap/scss/bootstrap.scss";

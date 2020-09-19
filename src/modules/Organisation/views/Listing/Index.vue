@@ -18,7 +18,7 @@
                 </th>
                 <th class="app-tb-col sorting"><span class="sub-text">{{$t('i18n.Organisation')}}</span></th>
                 <th class="app-tb-col app-col-mb sorting"><span class="sub-text">{{$t('i18n.InternalCode')}}</span></th>
-                <th class="app-tb-col app-col-mb sorting"><span class="sub-text">{{$t('i18n.Type')}}</span></th>
+                <th class="app-tb-col app-col-mb sorting"><span class="sub-text">{{$t('i18n.Address')}}</span></th>
                 <th class="app-tb-col app-col-mb sorting"><span class="sub-text">{{$t('i18n.Hierarchy')}}</span></th>
                 <th class="app-tb-col app-col-mb sorting"><span class="sub-text">{{$t('i18n.Manager')}}</span></th>
                 <th class="app-tb-col app-col-mb sorting"><span class="sub-text">{{$t('i18n.status.Status')}}</span></th>
@@ -34,7 +34,7 @@
                   <a href="/demo3/user-details-regular.html">
                     <div class="user-card">
                       <div class="user-avatar bg-primary">
-                        <span>AB</span>
+                        <span>{{ organisation.name | substrin(2) }}</span>
                       </div>
                       <div class="user-info">
                         <span class="tb-lead">{{organisation.name}}<span class="dot dot-success d-md-none ml-1"></span></span>
@@ -46,7 +46,11 @@
                 <td class="app-tb-col tb-col-mb">
                   <span class="tb-amount"><span class="currency">{{organisation.internalCode}}</span></span>
                 </td>
-                <td class="app-tb-col tb-col-md"><span>{{organisation.typeLabel}}</span></td>
+                <td class="app-tb-col tb-col-md">
+                <span ></span>
+                  <span class="tb-lead-sub" v-if="organisation.address">{{organisation.address.address.city}} {{organisation.address.address.postcode}}</span>
+                  <span class="tb-sub" v-if="organisation.address">{{organisation.address.address.housenumber}} {{organisation.address.address.street}}</span>
+                </td>
                 <td class="app-tb-col tb-col-lg">               
                   <span class="tb-lead-sub">{{organisation.parentLabel}} </span>
                   <span class="tb-sub">{{organisation.parentInternalCode}}</span>
@@ -65,7 +69,7 @@
                     <template v-slot:button-content >
                       <b-icon  width="1.1em" height="1.1em" class="btn-icon" icon="three-dots"></b-icon>
                     </template>
-                    <b-dropdown-item href="#">
+                    <b-dropdown-item :to="{ name: 'OrganisationView', params: { organisationId: organisation.id } }">
                       <b-icon  width="1.1em" height="1.1em" class="btn-icon" icon="eye"></b-icon> {{$t('i18n.viewDetail')}}
                     </b-dropdown-item>
                   </b-dropdown></td>
@@ -109,10 +113,10 @@ export default {
     }
   },
   computed: {
-   ...mapGetters({organisations: 'Organisation/results',filter: 'Organisation/filter'})
+   ...mapGetters({organisations: 'organisation/results',filter: 'organisation/filter'})
   },
   created() {
-    this.$store.dispatch("Organisation/find", this.filter);
+    this.$store.dispatch("organisation/find", this.filter);
   }
 }
 </script>

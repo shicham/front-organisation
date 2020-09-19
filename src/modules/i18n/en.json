@@ -1,5 +1,11 @@
 {
         "bulkAction":"Bulk Action",
+        "Infomation":"Infomation",
+        "Address":"Address",
+        "Postcode":"Poste code",
+        "City":"City",
+        "Employee":"Employee",
+        "Roles":"Roles",
         "Apply":"Apply",
         "Delete":"Delete",
         "Activate":"Activate",
@@ -14,7 +20,7 @@
         "Manager":"Manager",
         "viewDetail": "View details",
         "Organisation": "Organisation",
-        "InternalCode": "InternalCode",
+        "InternalCode": "Internal Code",
         "status": {
         		"Status":"Status",
         		"active":"Active",

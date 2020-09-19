@@ -1,4 +1,4 @@
-import { find, load, save, deletes } from '../api'
+import { find, load, save, deletes } from '../api/organisation'
 
 const state = {
   result: {},
@@ -8,7 +8,7 @@ const state = {
     pagesize: 5,
     pageindex: 5,
     id: null,
-    status: {}
+    statusOption: {}
   }
 }
 const mutations = {
@@ -59,7 +59,6 @@ const actions = {
   load({ commit }, id) {
     return new Promise((resolve, reject) => {
       load(id).then(response => {
-        console.log(response)
         commit('SET_RESULT', response)
         resolve()
       }).catch(error => {
@@ -68,7 +67,6 @@ const actions = {
     })
   },
   find({ commit },filter) {
-    console.log(filter)
     return new Promise((resolve, reject) => {
       find(filter).then(response => {
         commit('SET_RESULTS', response)
