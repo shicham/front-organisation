@@ -1,6 +1,7 @@
 {
         "bulkAction":"Bulk Action",
-        "Infomation":"Infomation",
+        "Contact":"Contact",
+        "Information":"Information",
         "Address":"Address",
         "Postcode":"Poste code",
         "City":"City",
@@ -25,6 +26,12 @@
         		"Status":"Status",
         		"active":"Active",
         		"inactive":"Inactive"
+        },
+        "statusEmp": {
+                "Status":"Status",
+                "activiteActive":"Active",
+                "inactive":"Inactive"
         }
+        
   
   }

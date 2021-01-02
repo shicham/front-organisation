@@ -6,10 +6,6 @@ const routes = [
         path: '/theme',
         component: DefaultLayout,
         name: 'themeLayout',
-        meta: {
-            breadcrumb: this.$t('Theme'),
-            title: this.$t('Default')
-        },
         children: [
           {
             path: '/default',

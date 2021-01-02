@@ -3,7 +3,7 @@
 <div class="app-block-head app-block-head-lg">
         <div class="app-block-between">
           <div class="app-block-head-content">
-            <h4 class="app-block-title">{{$t('i18n.Infomation')}}</h4>
+            <h4 class="app-block-title">{{$t('i18n.Information')}}</h4>
             <div class="app-block-des">
               <p>Basic info, like your name and address, that you use on Nio Platform.</p>
             </div>
@@ -24,7 +24,7 @@
         </span>
       </div>
     </div>
-    <div class="data-item">
+    <div class="data-item" v-b-modal.modal-prevent-closing>
       <div class="data-col">
         <span class="data-label">{{$t('i18n.Type')}}</span>
         <span class="data-value">{{organisation.typeLabel}}</span>
@@ -35,7 +35,7 @@
         </span>
       </div>
     </div>
-    <div class="data-item">
+    <div class="data-item" v-b-modal.modal-prevent-closing>
       <div class="data-col">
         <span class="data-label">{{$t('i18n.Manager')}}</span>
         <span class="data-value">{{organisation.managerName}}</span>
@@ -46,7 +46,7 @@
         </span>
       </div>
     </div>
-    <div class="data-item">
+    <div class="data-item" v-b-modal.modal-prevent-closing>
       <div class="data-col">
         <span class="data-label">{{$t('i18n.Hierarchy')}}</span>
         <span class="data-value">
@@ -62,7 +62,7 @@
   </div>
   <div class="app-data data-list">
     <div class="data-head"><h6 class="overline-title">{{$t('i18n.Address')}}</h6></div>
-    <div class="data-item">
+    <div class="data-item" v-b-modal.modal-prevent-closing>
       <div class="data-col">
         <span class="data-label">{{$t('i18n.Address')}}</span>
         <span class="data-value" v-if="organisation.address">{{organisation.address.address.housenumber}} {{organisation.address.address.street}} </span>
@@ -73,7 +73,7 @@
         </span>
       </div>
     </div>
-    <div class="data-item">
+    <div class="data-item" v-b-modal.modal-prevent-closing>
       <div class="data-col">
         <span class="data-label">{{$t('i18n.Postcode')}}</span>
         <span class="data-value" v-if="organisation.address">{{organisation.address.address.postcode}} </span>
@@ -84,7 +84,7 @@
         </span>
       </div>
     </div> 
-    <div class="data-item">
+    <div class="data-item" v-b-modal.modal-prevent-closing>
       <div class="data-col">
         <span class="data-label">{{$t('i18n.City')}}</span>
         <span class="data-value" v-if="organisation.address">{{organisation.address.address.city}} </span>

@@ -15,7 +15,7 @@ const routes = [
             name: 'OrganisationListing'
           },
           {
-            path: '/view/:organisationId',
+            path: '/view/:organisationId/:component/',
             component: ViewForm,
             name: 'OrganisationView'
           }

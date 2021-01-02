@@ -3,6 +3,7 @@
       <router-view></router-view>
       <router-link :to="{ name: 'UserListing' }">Homes</router-link>
       <router-link :to="{ name: 'OrganisationListing' }">Organisation</router-link>
+      <router-link :to="{ name: 'theme' }">theme</router-link>
   </div>
 </template>
 <script>

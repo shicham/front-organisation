@@ -17,7 +17,7 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => {
   if(modules[modules] && !modules[moduleName].isStore){
     return;
   }
-  
+  console.log(modules)
   return modules
 }, {})
 

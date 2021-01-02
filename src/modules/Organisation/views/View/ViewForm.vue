@@ -27,14 +27,14 @@
         <div class="card-inner p-0">
           <ul class="link-list-menu">
             <li>
-              <a class="active" href="/demo3/user-profile-regular.html">
-                <em class="icon ni ni-user-fill-c"></em><span>{{$t('i18n.Infomation')}}</span>
-              </a>
+              <router-link :to="{ name: 'OrganisationView', params: { organisationId: organisation.id, component: 'Information' } }">
+                <em class="icon ni ni-user-fill-c"></em><span>{{$t('i18n.Information')}}</span>
+              </router-link>
             </li>
-            <li>
-              <a href="/demo3/user-profile-regular.html">
+            <li >
+              <router-link :to="{ name: 'OrganisationView', params: { organisationId: organisation.id, component: 'Employee' } }">
                 <em class="icon ni ni-user-fill-c"></em><span>{{$t('i18n.Employee')}}</span>
-              </a>
+              </router-link>
             </li>
             <li>
               <a href="/demo3/user-profile-regular.html">
@@ -45,7 +45,7 @@
         </div>
       </div>
     </div>
-    <component v-bind:is="componentFile"></component>
+    <component v-bind:is="componentFile"></component> 
 
     
     
@@ -54,29 +54,32 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import Information from './Information';
 
 export default {
   name: 'ViewForm',
   components: {
-    Information
+    
   },
   data() {
     return {
-      componentName: 'Information'
+      
     }
   },
+  props: {
+    
+  },
   computed: {
-   ...mapGetters({organisation: 'organisation/result'})
+   ...mapGetters({organisation: 'organisation/result'}),
+   componentFile() {
+      return this.importComponent(this.$route.params.component)
+    }
   },
   created() {
     this.$store.dispatch("organisation/load", this.$route.params.organisationId);
-    
   },
   methods: {
-    componentFile() {
-      console.log(this.componentName)
-      return () => import("./"+this.componentName+".vue");
+    importComponent(path) {
+      return () => import(`./${path}.vue`)
     }
   }
 }

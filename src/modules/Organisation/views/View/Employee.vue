@@ -1,11 +1,11 @@
 <template>
   <div class="app-block">
-    <b-card no-body class="card card-bordered card-stretch">
+    <b-card no-body class="bd-0">
     <div class="card-inner-group">
       <div class="card-inner position-relative card-tools-toggle">
         <div class="card-title-group">
-          <div class="card-tools"><Actions></Actions></div>
-          <div class="card-tools mr-n1"><Filters></Filters></div>
+          <div class="card-tools"></div>
+          <div class="card-tools mr-n1"></div>
         </div>
       </div>
       <div class="card-inner p-0">
@@ -18,50 +18,42 @@
                 </th>
                 <th class="app-tb-col sorting"><span class="sub-text">{{$t('i18n.Organisation')}}</span></th>
                 <th class="app-tb-col app-col-mb sorting"><span class="sub-text">{{$t('i18n.InternalCode')}}</span></th>
-                <th class="app-tb-col app-col-mb sorting"><span class="sub-text">{{$t('i18n.Address')}}</span></th>
-                <th class="app-tb-col app-col-mb sorting"><span class="sub-text">{{$t('i18n.Hierarchy')}}</span></th>
-                <th class="app-tb-col app-col-mb sorting"><span class="sub-text">{{$t('i18n.Manager')}}</span></th>
+                <th class="app-tb-col app-col-mb sorting"><span class="sub-text">{{$t('i18n.Contact')}}</span></th>
+                
                 <th class="app-tb-col app-col-mb sorting"><span class="sub-text">{{$t('i18n.status.Status')}}</span></th>
                 <th class="app-tb-col app-tb-col-tools text-right sorting"></th>
               </tr>
             </thead>
             <tbody>
-            <tr class="app-tb-item odd" v-bind:class="{'app-tb-item-selected' : organisation.selected}" v-for="organisation in organisations.list" v-bind:key="organisation.id">
+            <tr class="app-tb-item odd" v-bind:class="{'app-tb-item-selected' : person.selected}" v-for="person in persons.list" v-bind:key="person.id">
                 <td class="app-tb-col app-tb-col-check ">
-                  <b-form-checkbox  v-model="organisation.selected" ></b-form-checkbox>
+                  <b-form-checkbox  v-model="person.selected" ></b-form-checkbox>
                 </td>
                 <td class="app-tb-col">
-                  <a href="/demo3/user-details-regular.html">
+                  <div>
                     <div class="user-card">
                       <div class="user-avatar bg-primary">
-                        <span>{{ organisation.name | substrin(2) }}</span>
+                        <span>{{ person.firstname | substrin(2) }}</span>
                       </div>
                       <div class="user-info">
-                        <span class="tb-lead">{{organisation.name}}<span class="dot dot-success d-md-none ml-1"></span></span>
-                        <span>{{organisation.typeLabel}}-</span>
+                        <span class="tb-lead">{{person.gender}} {{person.firstname}} {{person.lastname}}<span class="dot dot-success d-md-none ml-1"></span></span>
+                        <span>{{person.typeLabel}}-</span>
                       </div>
                     </div>
-                  </a>
+                  </div>
                 </td>
                 <td class="app-tb-col tb-col-mb">
-                  <span class="tb-amount"><span class="currency">{{organisation.internalCode}}</span></span>
+                  <span class="tb-amount"><span class="currency">{{person.internalCode}}</span></span>
                 </td>
                 <td class="app-tb-col tb-col-md">
                 <span ></span>
-                  <span class="tb-lead-sub" v-if="organisation.address">{{organisation.address.address.city}} {{organisation.address.address.postcode}}</span>
-                  <span class="tb-sub" v-if="organisation.address">{{organisation.address.address.housenumber}} {{organisation.address.address.street}}</span>
+                  <span class="tb-lead-sub" >{{person.primaryEmail}}</span>
+                  <span class="tb-sub" >{{person.primaryPhone}}</span>
                 </td>
-                <td class="app-tb-col tb-col-lg">               
-                  <span class="tb-lead-sub">{{organisation.parentLabel}} </span>
-                  <span class="tb-sub">{{organisation.parentInternalCode}}</span>
-                </td>
-                <td class="app-tb-col tb-col-lg">
-                  <span class="tb-lead-sub">{{organisation.managerName}} </span>
-                  <span class="tb-sub">{{organisation.managerInternalCode}}</span>
-                </td>
+                
                 <td class="app-tb-col tb-col-md">
-                  <span class="tb-status text-success" v-bind:class="getUsetStatus(organisation.status).class">
-                    {{getUsetStatus(organisation.status).label}}
+                  <span class="tb-status text-success" v-bind:class="getUsetStatus(person.statusCode).class">
+                    {{getUsetStatus(person.statusCode).label}}
                   </span>
                 </td>
                 <td class="app-tb-col app-tb-col-tools dropc" id="popover-target-1">
@@ -69,7 +61,7 @@
                     <template v-slot:button-content >
                       <b-icon  width="1.1em" height="1.1em" class="btn-icon" icon="three-dots"></b-icon>
                     </template>
-                    <b-dropdown-item :to="{ name: 'OrganisationView', params: { organisationId: organisation.id } }">
+                    <b-dropdown-item :to="{ name: 'OrganisationView', params: { personId: person.id } }">
                       <b-icon  width="1.1em" height="1.1em" class="btn-icon" icon="eye"></b-icon> {{$t('i18n.viewDetail')}}
                     </b-dropdown-item>
                   </b-dropdown></td>
@@ -87,13 +79,11 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-import Actions from './Actions.vue'
-import Filters from './Filters.vue'
 
 export default {
   name: 'Employee',
   components: {
-    Actions,Filters
+    
   },
   data() {
     return {}
@@ -102,21 +92,21 @@ export default {
     getUsetStatus(status){
       let sts = {};
       switch (status) {
-        case 'active':
-          sts = {key:'active', label:this.$t("i18n.status."+status), class: 'text-success'}
+        case 'activiteActive':
+          sts = {key:'active', label:this.$t("i18n.statusEmp."+status), class: 'text-success'}
           break;
         case 'inactive':
-          sts = {key:'inactive', label:this.$t("i18n.status."+status), class: 'text-danger'}
+          sts = {key:'inactive', label:this.$t("i18n.statusEmp."+status), class: 'text-danger'}
           break;
       }
       return sts;
     }
   },
   computed: {
-   ...mapGetters({organisations: 'organisation/results',filter: 'organisation/filter'})
+   ...mapGetters({persons: 'person/results',filter: 'person/filter'})
   },
   created() {
-    this.$store.dispatch("organisation/find", this.filter);
+    this.$store.dispatch("person/find", this.filter);
   }
 }
 </script>

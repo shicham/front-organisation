@@ -1378,7 +1378,9 @@ overline-title-alt {
     color: #6576ff;
 }
 
-
+.app-block {
+	width: 100%;
+}
 
 .app-block-head-lg {
     padding-bottom: 1.5rem;
@@ -1541,4 +1543,8 @@ overline-title-alt {
     transform: translateY(-50%);
     width: calc(1rem + 12px);
     height: calc(1rem + 12px);
+}
+
+.tx-center {
+    text-align: center;
 }

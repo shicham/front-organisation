@@ -4,13 +4,13 @@ import request from '@/utils/request'
 export function save(data) {
   if (data.id) {
     return request({
-      url: '/organization',
+      url: '/person',
       method: 'put',
       data
     })
   } else {
     return request({
-      url: '/organization',
+      url: '/person',
       method: 'post',
       data
     })
@@ -19,7 +19,7 @@ export function save(data) {
 
 export function deletes(data) {
   return request({
-    url: '/organization',
+    url: '/person',
     method: 'delete',
     data
   })
@@ -27,15 +27,15 @@ export function deletes(data) {
 
 export function find(filter) {
   return request({
-    url: '/service-organization/organization/find',
-    method: 'POST',
+    url: '/person/find',
+    method: 'post',
     data:filter
   })
 }
 
 export function load(id) {
   return request({
-    url: '/organization/load/' + id,
+    url: '/person/load/' + id,
     method: 'get'
   })
 }

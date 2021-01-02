@@ -1,7 +1,7 @@
 import axios from 'axios'
 // create an axios instance
 const service = axios.create({
-  baseURL: 'http://localhost:8082/api/v1/', // url = base url + request url
+  baseURL: 'http://51.68.44.179:8001/api/', // url = base url + request url
   // withCredentials: true, // send cookies when cross-domain requests
   timeout: 5000
 })

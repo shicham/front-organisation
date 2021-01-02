@@ -14,8 +14,8 @@
       <div class="modal-body-lg">
       <h5 class="title">Update Profile</h5>
       <ul class="app-nav nav nav-tabs">
-        <li class="nav-item"><a class="nav-link active">Information</a></li>
-        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#address">Address</a></li>
+        <li class="nav-item"><a class="nav-link active">{{$t('i18n.Information')}}</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#address">{{$t('i18n.Address')}}</a></li>
       </ul>
       <div class="tab-content">
         <div class="tab-pane active">
@@ -25,13 +25,13 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label class="form-label" for="Name">{{$t('i18n.Name')}}</label>
-                <input type="text" class="form-control form-control-lg" id="Name"  v-bind:value="organisation.name" :placeholder="$t('i18n.Name')">
+                <input type="text" class="form-control form-control-lg" id="Name" v-bind:value="organisation.name" :placeholder="$t('i18n.Name')">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label class="form-label" for="InternalCode">{{$t('i18n.InternalCode')}}</label>
-                <input type="text" class="form-control form-control-lg" id="InternalCode"  v-bind:value="organisation.internalCode" :placeholder="$t('i18n.InternalCode')">
+                <input type="text" class="form-control form-control-lg" id="InternalCode" v-bind:value="organisation.internalCode" :placeholder="$t('i18n.InternalCode')">
               </div>
             </div>
             <div class="col-md-6">
@@ -57,9 +57,14 @@
                       </option>
                     </select>
                   </div>
+                </div>
               </div>
             </div>
-            
+          <div class="col-12">
+            <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
+              <li><button type="submit" class="btn btn-lg btn-primary">Update Profile</button></li>
+              <li><a href="#" data-dismiss="modal" class="link link-light">Cancel</a></li>
+            </ul>
           </div>
         </div>
         </form>
@@ -79,7 +84,8 @@
       return {
         name: '',
         nameState: null,
-        submittedNames: []
+        submittedNames: [],
+        org: {}
       }
     },
     computed: {
@@ -109,6 +115,7 @@
         if (!this.checkFormValidity()) {
           return
         }
+        console.log('org',this.org)
         // Push the name to submitted names
         this.submittedNames.push(this.name)
         // Hide the modal manually
