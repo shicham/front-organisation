@@ -2,7 +2,7 @@
 <div class="app-block">
 <b-card no-body class="card card-bordered card-stretch">
   <div class="card-inner-group">
-    <b-table striped hover :items="rows"></b-table>
+    <b-table striped hover :items="organizations.data"></b-table>
   </div>
 </b-card>
 </div>
