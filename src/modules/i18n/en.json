@@ -1,5 +1,6 @@
 {
         "bulkAction":"Bulk Action",
+        "code":"Code",
         "Contact":"Contact",
         "Information":"Information",
         "Address":"Address",
@@ -22,10 +23,15 @@
         "viewDetail": "View details",
         "Organisation": "Organisation",
         "InternalCode": "Internal Code",
+        "primaryEmail": "Primary email",
+        "primaryPhone": "Primary phone",
+        "Attachement": "Attachement",
         "status": {
-        		"Status":"Status",
-        		"active":"Active",
-        		"inactive":"Inactive"
+        		"Status":{"label":"Status" , "class":"text-success"},
+        		"active":{"label":"Active" , "class":"text-success"},
+        		"inactive":{"label":"Inactive" , "class":"text-info"},
+                "pending":{"label":"Pending" , "class":"text-warning"},
+                "suspend":{"label":"Suspend" , "class":"text-danger"}
         },
         "statusEmp": {
                 "Status":"Status",
