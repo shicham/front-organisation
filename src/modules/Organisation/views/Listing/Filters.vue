@@ -1,14 +1,12 @@
 <template>
 <ul class="btn-toolbar gx-1">
-  <li class="">
-  <div class="btn btn-icon search-toggle toggle-search h4 mb-0"><b-icon icon="search" size="1.5em"></b-icon></div>
-  </li>
-  <li class="btn-toolbar-sep"></li>
+  
   <li>
     <div class="toggle-wrap">
-      <div href="#" class="btn btn-icon  toggle active" data-target="cardTools">
+      <div href="#" class="btn btn-icon  toggle active btn-toolbar-sep" data-target="cardTools">
       <b-icon icon="search" size="1.5em" ></b-icon>
       </div>
+
       <div class="toggle-content">
         <ul class="btn-toolbar gx-1">
           <li class="dropc">

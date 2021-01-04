@@ -1,13 +1,44 @@
 <template>
+<div>
+<div class="app-block-head app-block-head-sm">
+  <div class="app-block-between">
+    <div class="app-block-head-content">
+      <h3 class="app-block-title page-title">{{$t("i18n.OrganisationsLists")}}</h3>
+      <div class="app-block-des text-soft"><p>{{$t("i18n.YouHaveTotal")}} {{organizations.totalElements}} {{$t("i18n.organisations")}}.</p></div>
+    </div>
+    <div class="app-block-head-content">
+      <div class="toggle-wrap app-block-tools-toggle">
+        <div class="toggle-expand-content">
+          <ul class="app-block-tools g-3">
+            <li>
+              <a href="#" class="btn btn-white btn-outline-light"><b-icon icon="telephone-inbound" ></b-icon><span>Export</span></a>
+            </li>
+            <li class="nk-block-tools-opt">
+              <b-button-group class="act-add">
+                <b-button variant="primary" >
+                  <plus-circle-icon size="1.5x" class="custom-class"></plus-circle-icon> Add Organization
+                </b-button>
+                <b-button variant="primary" class="bd-l-w" >
+                  <plus-circle-icon size="1.5x" class="custom-class"></plus-circle-icon> Add Person
+                </b-button>
+              </b-button-group>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="app-block">
+
 <b-card no-body class="card card-bordered card-stretch">
   <div class="card-inner position-relative card-tools-toggle bd-b-1">
     <div class="card-title-group">
       <div class="card-tools">
-        dsd
+        <Actions></Actions>
       </div>
       <div class="card-tools mr-n1">
-        uh
+        <Filters></Filters>
       </div>
     </div>
   </div>
@@ -49,7 +80,7 @@
     </b-table>
   </div>
   <div class="card-inner bd-t-1">
-    <div class="nk-block-between-md g-3">
+    <div class="app-block-between-md g-3">
       <div class="g">
         kk
       </div>
@@ -60,14 +91,19 @@
   </div>
 </b-card>
 </div>
-
+</div>
 </template>
 <script>
 import { mapGetters } from "vuex";
 
+import Actions from './Actions';
+import Filters from './Filters';
+
+import { PlusCircleIcon } from 'vue-feather-icons'
+
 export default {
   name: 'Index',
-  components: {},
+  components: {Actions,Filters,PlusCircleIcon},
   data() {
     return {
       selectMode: 'multi',

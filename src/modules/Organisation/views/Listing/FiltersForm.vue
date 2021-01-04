@@ -6,16 +6,16 @@
     </span>
   </template>
   <b-dropdown-header id="dropdown-header-label">
-    <span class="sub-title dropdown-title">Dropdown header</span>
+    <span class="sub-title dropdown-title">{{$t('i18n.Filters')}}</span>
   </b-dropdown-header>
   <b-dropdown-form class="dropdown-menu-xl dropdown-body dropdown-body-rg filter-wg">
     <div class="row gx-6 gy-3">
       
       <div class="col-6">
-        <b-form-checkbox id="checkbox-active" v-model="filter.statusOption.active" >{{$t('i18n.status.active')}}</b-form-checkbox>
+        <b-form-checkbox id="checkbox-active" v-model="filter.statusOption.active" >{{$t('i18n.status.active.label')}}</b-form-checkbox>
       </div>
       <div class="col-6">
-        <b-form-checkbox id="checkbox-inactive" v-model="filter.statusOption.inactive" >{{$t('i18n.status.inactive')}}</b-form-checkbox>
+        <b-form-checkbox id="checkbox-inactive" v-model="filter.statusOption.inactive" >{{$t('i18n.status.inactive.label')}}</b-form-checkbox>
       </div>
       <div class="col-12">
         <b-form-group labal-class="overline-title overline-title-alt" :label="$t('i18n.Name')" label-for="dropdown-form-Name">

@@ -1,3 +1,4 @@
+body {font-size: .875rem;}
 ol, ul, dl {
     margin-top: 0;
     margin-bottom: 1rem;
@@ -1608,13 +1609,8 @@ td {
     border-bottom: 0px;
 }
 
-.btn-icon:hover{
-    background: #f1f1f1;
-    padding: 6px;
-    border-radius: 16px;font-size: 1.3em;
-}
 .btn-icon {
-    font-size: 1.3em;width: 2rem;padding: 6px;
+    font-size: 1em;
 }
 .bd-b-1 {
 	border-bottom:1px solid #dbdfea
@@ -1644,4 +1640,138 @@ td {
 
 .table {
     margin-bottom: 0;
+}
+
+.bulkAct{
+    min-width: 105px;
+}
+.text-soft {
+    color: #8094ae !important;
+}
+@media (min-width: 992px){
+h3, .h3 {
+    font-size: 2rem;
+    letter-spacing: -0.03em;
+}
+}
+.page-title {
+    font-family: Roboto,sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+@media (min-width: 992px){
+.page-title {
+    font-size: 1.5rem;
+}
+}
+
+
+.toggle-expand-content {
+    display: none;
+}
+
+@media (min-width: 576px){
+.app-block-tools-toggle .toggle-expand-content {
+    display: block !important;
+}
+}
+
+.app-block-tools {
+    display: flex;
+    align-items: center;
+}
+.app-block-tools>* {
+    display: inline-flex;
+}
+
+.btn-outline-light {
+    border-color: #dbdfea;
+}
+
+.btn-outline-light, .btn-outline-lighter {
+    color: #526484;
+}
+
+.btn-white, .btn-white.btn-dim {
+    background: #fff;
+}
+
+
+.btn>span {
+    display: inline-block;
+    white-space: nowrap;
+}
+.btn .icon+span, .btn span+.icon {
+    padding-left: 8px !important;
+}
+.btn svg+span, .btn span+svg {
+    padding-left: 8px !important;
+}
+
+svg  {
+    font-size: 0.8em;
+    line-height: inherit;
+    font-weight: bold;
+    color: #7b7b7b;
+}
+
+@media (min-width: 576px){
+.card-inner {
+    padding: 1rem;
+}
+}
+.dropdown-toggle-no-caret.dropdown-toggle::after {
+	display: none
+}
+
+.btn-acti {
+	color: #fff;
+    background-color: #6576ff;
+    border-color: #6576ff;
+        white-space: nowrap;
+        border-radius: 0.25rem;
+}
+
+.btn-acti svg{
+	    color: #fff;
+    font-size: 0.7em;
+	}
+
+
+	.app-block-head-content .btn > span {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 13px;
+    padding: 3px;
+}
+.act-add button{
+    font-weight: 900;
+}
+.act-add svg{
+    margin-right: 9px;
+    color: #fff;
+}
+
+.bd-l-w{
+    border-left: 1px solid #5160e2;
+}
+
+.act-add .disab{
+    opacity: 0.7 !important;
+}
+@media (min-width: 576px){
+.card-inner {
+    padding: 0.7rem;
+}
+}
+
+@media (min-width: 576px){
+.app-content {
+    padding: 40px 20px !important;
+}
+}
+
+.act-add button{
+    font-size: 0.9rem;
 }
