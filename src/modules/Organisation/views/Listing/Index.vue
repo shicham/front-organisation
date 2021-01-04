@@ -18,7 +18,7 @@
                 <b-button variant="primary" >
                   <plus-circle-icon size="1.5x" class="custom-class"></plus-circle-icon> Add Organization
                 </b-button>
-                <b-button variant="primary" class="bd-l-w" >
+                <b-button variant="primary" class="bd-l-w " v-bind:class="[selected.length != 1 ? 'disabled' : '']">
                   <plus-circle-icon size="1.5x" class="custom-class"></plus-circle-icon> Add Person
                 </b-button>
               </b-button-group>

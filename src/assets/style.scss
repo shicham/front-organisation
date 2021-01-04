@@ -1662,7 +1662,7 @@ h3, .h3 {
 
 @media (min-width: 992px){
 .page-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 }
 
@@ -1762,16 +1762,37 @@ svg  {
 }
 @media (min-width: 576px){
 .card-inner {
-    padding: 0.7rem;
+    padding: 0.3rem;
 }
 }
 
 @media (min-width: 576px){
 .app-content {
-    padding: 40px 20px !important;
+    padding: 15px 20px !important;
 }
 }
 
 .act-add button{
     font-size: 0.9rem;
+}
+
+.disabled {
+    cursor: progress !important;
+}
+
+.app-header-tools {
+    padding-top: 0;
+    padding-bottom: 8px;
+}
+.app-sidebar {
+    top: 60px;
+ }
+
+.app-sidebar-inner {
+    padding: 1rem !important;
+    max-height: calc(100vh - 65px);
+}
+
+.table td {
+    padding: 0.2rem;
 }
