@@ -7,7 +7,10 @@
     </b-dropdown>
   </div>
   <div>
-    <b-button class="btn-dim" variant="outline-light" :disabled="!action.method" v-on:click="apply">{{$t('i18n.Apply')}}</b-button>
+    <b-button class="btn-dim" variant="outline-light" :disabled="!action.method" v-on:click="apply">
+      {{$t('i18n.Apply')}}
+    </b-button>
+    <span class="mg-l-20 fs-12" v-if="selected.length > 0">{{selected.length}} {{$t('i18n.selected-s')}}</span>
   </div>
 </div>
 </template>
@@ -16,8 +19,10 @@ export default {
   name: 'Index',
   components: {
   },
+  props: ['selected'],
   data() {
       return {
+        show: false,
         action : {
           method: '',
           label: this.$t('i18n.bulkAction')

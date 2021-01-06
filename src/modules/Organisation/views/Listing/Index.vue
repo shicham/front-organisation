@@ -35,7 +35,7 @@
   <div class="card-inner position-relative card-tools-toggle bd-b-1">
     <div class="card-title-group">
       <div class="card-tools">
-        <Actions></Actions>
+        <Actions :selected="selected"></Actions>
       </div>
       <div class="card-tools mr-n1">
         <Filters></Filters>
@@ -43,7 +43,7 @@
     </div>
   </div>
   <div class="card-inner-group">
-    <b-table class="ptable app-tb-list app-tb-ulist no-footer" tbody-tr-class="app-tb-item odd" responsive="sm"  hover :fields="fields" :items="organizations.data"
+    <b-table class="ptable app-tb-list app-tb-ulist app-tb-list app-tb-ulist is-compact no-footer" tbody-tr-class="app-tb-item odd" responsive="sm"  hover :fields="fields" :items="organizations.data"
     selectable @row-selected="onRowSelected" :select-mode="selectMode">
       <template #cell(internalCode)="data">
           <div class="user-card">
@@ -155,10 +155,10 @@ export default {
     
   },
   computed: {
-   ...mapGetters({organizations: 'organisation/results'})
+   ...mapGetters({organizations: 'organisation/results', filter: 'organisation/filter'})
   },
   created() {
-    this.$store.dispatch("organisation/find", {});
+    this.$store.dispatch("organisation/find", this.filter);
   }
 }
 </script>

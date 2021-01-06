@@ -5,8 +5,9 @@
     <b-icon  class="btn-icon" icon="filter"></b-icon>
     </span>
   </template>
-  <b-dropdown-header id="dropdown-header-label">
+  <b-dropdown-header id="dropdown-header-label"> {{criteria}}
     <span class="sub-title dropdown-title">{{$t('i18n.Filters')}}</span>
+  
   </b-dropdown-header>
   <b-dropdown-form class="dropdown-menu-xl dropdown-body dropdown-body-rg filter-wg">
     <div class="row gx-6 gy-3">
@@ -19,12 +20,12 @@
       </div>
       <div class="col-12">
         <b-form-group labal-class="overline-title overline-title-alt" :label="$t('i18n.Name')" label-for="dropdown-form-Name">
-          <b-form-input id="dropdown-form-Name" :placeholder="$t('i18n.Name')" v-model="filter.name" ></b-form-input>
+          <b-form-input id="dropdown-form-Name" :placeholder="$t('i18n.Name')" v-model="criteria.name" ></b-form-input>
         </b-form-group>
       </div>
       <div class="col-6">
         <b-form-group labal-class="overline-title overline-title-alt" :label="$t('i18n.InternalCode')" label-for="dropdown-form-InternalCode">
-          <b-form-input id="dropdown-form-InternalCode" v-model="filter.internalCode"  :placeholder="$t('i18n.InternalCode')"></b-form-input>
+          <b-form-input id="dropdown-form-InternalCode" v-model="criteria.internalCode"  :placeholder="$t('i18n.InternalCode')"></b-form-input>
         </b-form-group>
       </div>
       <div class="col-6">
@@ -32,6 +33,10 @@
           <b-form-select  v-model="filter.typeId" id="dropdown-form-Type" :options="options" class="select-m"></b-form-select>
         </b-form-group>
       </div>
+      <div class="col-6">
+      <b-button variant="secondary" v-on:click="apply" >Filter</b-button>
+                </div>
+
     </div>
   </b-dropdown-form>
 </b-dropdown>
@@ -42,14 +47,21 @@ import { mapGetters } from "vuex";
 export default {
   name: 'FiltersForm',
   components: {
+
   },
   data() {
     return {
+      criteria: {},
       options: []
     }
   },
   computed: {
    ...mapGetters({filter: 'organisation/filter'})
+  },
+  methods: {
+    apply() {
+      this.$store.dispatch("organisation/find", this.filter);
+    }
   }
 }
 </script>

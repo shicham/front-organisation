@@ -1,6 +1,7 @@
 {
         "bulkAction":"Bulk Action",
         "Filters": "Filters",
+        "selected-s": "selected(s)",
         "OrganisationsLists":"Organisations Lists",
         "YouHaveTotal":"You have total",
         "organisations":"organisations",

@@ -98,6 +98,8 @@ body {
     letter-spacing: 0.02em;
     display: inline-flex;
     align-items: center;
+        font-size: 13px;
+        font-weight: 700;
 }
 .btn-dim.btn-warning {
     color: #f4bd0e;
@@ -1296,6 +1298,9 @@ h6, .h6 {
 .dropdown-header {
     border-bottom: 1px solid #e5e9f2;
 }
+.dropdown-header {
+    font-size: .8125rem;
+}
 .dropdown-title {
     font-weight: 500;
     color: #364a63;
@@ -1304,10 +1309,29 @@ h6, .h6 {
     min-width: 360px;
     max-width: 360px;
 }
-.dropdown-body-rg {
+.dropdown-menu.show {
+    padding-top: 0;
+}
+.dropdown-menu .custom-control-label{
+	font-size: 12px;
+    line-height: 1.125rem;
+}
+.dropdown-menu .dropdown-body-rg {
     padding: 1.25rem;
 }
 
+.form-group {
+	    margin-bottom: 0;
+}
+label.d-block{
+    font-family: Roboto,sans-serif,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.15em;
+    font-size: 11px;
+    color: #8094ae;
+    text-transform: uppercase;
+}
 .filter-wg label.overline-title {
     margin-bottom: .5rem;
 }
@@ -1579,7 +1603,7 @@ td {
     color: #364a63;
     display: block;
     line-height: 1.4;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 
@@ -1743,7 +1767,7 @@ svg  {
     display: inline-block;
     white-space: nowrap;
     font-size: 13px;
-    padding: 3px;
+    padding: 0px;
 }
 .act-add button{
     font-weight: 900;
@@ -1773,7 +1797,7 @@ svg  {
 }
 
 .act-add button{
-    font-size: 0.9rem;
+    
 }
 
 .disabled {
@@ -1795,4 +1819,15 @@ svg  {
 
 .table td {
     padding: 0.2rem;
+}
+
+.mg-l-20{
+    margin-left: 20px;
+}
+.mg-r-20{
+    margin-right: 20px;
+}
+
+.fs-12 {
+	font-size: 12px;
 }

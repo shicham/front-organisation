@@ -8,7 +8,8 @@ const state = {
     pagesize: 5,
     pageindex: 5,
     id: null,
-    statusOption: {}
+    statusOption: {},
+    criteria : []
   }
 }
 const mutations = {
