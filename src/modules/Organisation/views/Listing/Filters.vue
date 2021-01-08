@@ -20,12 +20,10 @@
             </span>
           </template>
                     <b-dropdown-item href="#"><span class="f-tx-l">{{$t("i18n.SHOW")}}</span></b-dropdown-item>
-                    <b-dropdown-item href="#">
-                      <span class="active">5 <b-icon  width="1.1em" height="1.1em" class="btn-icon" icon="check"></b-icon></span>
+                    <b-dropdown-item v-for="shows in show" v-bind:key="show.key" v-on:click="setPageSize(show.key)" >
+                      <span class="active" >{{show.key}} <b-icon  width="1.1em" height="1.1em" class="btn-icon" icon="check"></b-icon></span>
                     </b-dropdown-item>
-                    <b-dropdown-item href="#"><span>10</span></b-dropdown-item>
-                    <b-dropdown-item href="#"><span>15</span></b-dropdown-item>
-                    <b-dropdown-item href="#"><span>20</span></b-dropdown-item>
+                    
                     <b-dropdown-divider></b-dropdown-divider>
                     <b-dropdown-item href="#"><span class="f-tx-l">{{$t("i18n.ORDER")}}</span></b-dropdown-item>
                     <b-dropdown-item href="#" >
@@ -49,10 +47,26 @@ export default {
   FiltersForm
   },
   data() {
-    return {}
+    return {
+      size: 10,
+      shows: [
+        {key:5, visible:false},
+        {key:10, visible:false},
+        {key:15, visible:false},
+        {key:20, visible:false},
+        {key:25, visible:false},
+        {key:30, visible:false}
+      ]
+    }
+  },
+  methods: {
+    setPageSize(size){
+      this.filter.size = size
+      this.$store.dispatch("organisation/find", this.filter);
+    }
   },
   computed: {
-   ...mapGetters({nsOne: 'namespaced/nsOne'})
+    ...mapGetters({filter: 'organisation/filter'})
   }
 }
 </script>

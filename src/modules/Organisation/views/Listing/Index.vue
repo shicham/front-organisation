@@ -2,7 +2,7 @@
 <div>
 <div class="app-block-head app-block-head-sm">
   <div class="app-block-between">
-    <div class="app-block-head-content">
+    <div class="app-block-head-content">{{findByParent(1)}}
       <h3 class="app-block-title page-title">{{$t("i18n.OrganisationsLists")}}</h3>
       <div class="app-block-des text-soft"><p>{{$t("i18n.YouHaveTotal")}} {{organizations.totalElements}} {{$t("i18n.organisations")}}.</p></div>
     </div>
@@ -95,7 +95,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
-
+import { findByParent } from "@/modules/Referentiel/api/referentiel"
 import Actions from './Actions';
 import Filters from './Filters';
 
@@ -151,13 +151,28 @@ export default {
     },
     getStatusCss(val){
       return this.$t("i18n.status")[val].class;
+    },
+    findByParent(parentCode) {
+      return new Promise((resolve, reject) => {
+        findByParent(parentCode)
+          .then(response => {
+            this.items = response.data;
+            resolve();
+          })
+          .catch(error => {
+            console.log(error);
+            reject(error);
+          });
+      });
     }
+
     
   },
   computed: {
    ...mapGetters({organizations: 'organisation/results', filter: 'organisation/filter'})
   },
   created() {
+  
     this.$store.dispatch("organisation/find", this.filter);
   }
 }
