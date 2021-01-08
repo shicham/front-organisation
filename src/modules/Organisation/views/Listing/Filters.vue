@@ -20,8 +20,9 @@
             </span>
           </template>
                     <b-dropdown-item href="#"><span class="f-tx-l">{{$t("i18n.SHOW")}}</span></b-dropdown-item>
-                    <b-dropdown-item v-for="shows in show" v-bind:key="show.key" v-on:click="setPageSize(show.key)" >
-                      <span class="active" >{{show.key}} <b-icon  width="1.1em" height="1.1em" class="btn-icon" icon="check"></b-icon></span>
+                    <b-dropdown-item v-for="show in shows" v-bind:key="show.key" v-on:click="setPageSize(show.key)" >
+                      <span class="active" >{{show.key}} 
+                      <b-icon  v-if="filter.size === show.key" width="1.1em" height="1.1em" class="btn-icon" icon="check"></b-icon></span>
                     </b-dropdown-item>
                     
                     <b-dropdown-divider></b-dropdown-divider>

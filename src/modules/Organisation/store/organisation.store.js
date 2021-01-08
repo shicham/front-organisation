@@ -5,8 +5,9 @@ const state = {
   results: [],
   filter: {
     order: 'desc',
-    pagesize: 5,
-    pageindex: 5,
+    size: 5,
+    page: 0,
+    desc: null,
     id: null,
     statusOption: {},
     criteria : []
