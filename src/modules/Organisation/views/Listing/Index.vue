@@ -2,7 +2,7 @@
 <div>
 <div class="app-block-head app-block-head-sm">
   <div class="app-block-between">
-    <div class="app-block-head-content">{{findByParent(1)}}
+    <div class="app-block-head-content">
       <h3 class="app-block-title page-title">{{$t("i18n.OrganisationsLists")}}</h3>
       <div class="app-block-des text-soft"><p>{{$t("i18n.YouHaveTotal")}} {{organizations.totalElements}} {{$t("i18n.organisations")}}.</p></div>
     </div>
@@ -11,15 +11,24 @@
         <div class="toggle-expand-content">
           <ul class="app-block-tools g-3">
             <li>
-              <a href="#" class="btn btn-white btn-outline-light"><b-icon icon="telephone-inbound" ></b-icon><span>Export</span></a>
+              <a href="#" class="btn btn-white btn-outline-light"><b-icon icon="telephone-inbound" ></b-icon><span>{{$t("i18n.BulkExport")}}</span></a>
+
+              <b-dropdown id="dropdown-1" text="Dropdown Button" class=" btn-white btn-outline-light">
+                <b-dropdown-item>First Action</b-dropdown-item>
+                <b-dropdown-item>Second Action</b-dropdown-item>
+                <b-dropdown-item>Third Action</b-dropdown-item>
+                <b-dropdown-divider></b-dropdown-divider>
+                <b-dropdown-item active>Active action</b-dropdown-item>
+                <b-dropdown-item disabled>Disabled action</b-dropdown-item>
+              </b-dropdown>
             </li>
             <li class="nk-block-tools-opt">
               <b-button-group class="act-add">
                 <b-button variant="primary" >
-                  <plus-circle-icon size="1.5x" class="custom-class"></plus-circle-icon> Add Organization
+                  <plus-circle-icon size="1.5x" class="custom-class"></plus-circle-icon> {{$t("i18n.AddOrganization")}}
                 </b-button>
                 <b-button variant="primary" class="bd-l-w " v-bind:class="[selected.length != 1 ? 'disabled' : '']">
-                  <plus-circle-icon size="1.5x" class="custom-class"></plus-circle-icon> Add Person
+                  <plus-circle-icon size="1.5x" class="custom-class"></plus-circle-icon> {{$t("i18n.AddPerson")}}
                 </b-button>
               </b-button-group>
             </li>
@@ -73,20 +82,43 @@
             <template v-slot:button-content >
               <b-icon  width="1.1em" height="1.1em" class="btn-icon" icon="three-dots"></b-icon>
             </template>
-            <b-dropdown-item href="#">{{data.item.primaryPhone}}Action</b-dropdown-item>
-              <b-dropdown-item href="#">Another action</b-dropdown-item>
-            </b-dropdown></div>
+            
+            <b-dropdown-item href="#" v-on:click="viewDetails(data.items.id)">
+              <b-icon  width="1.1em" height="1.1em" class="btn-icon" icon="cloud-download"></b-icon> 
+              {{$t("i18n.AddBulkExport")}}
+            </b-dropdown-item>
+            <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-item href="#" v-on:click="viewDetails(data.items.id)">
+              <b-icon  width="1.1em" height="1.1em" class="btn-icon" icon="eye"></b-icon> 
+              {{$t("i18n.ViewDetails")}}
+            </b-dropdown-item>
+            <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-item href="#">
+              <b-icon  width="1.1em" height="1.1em" class="btn-icon" icon="diagram3"></b-icon>
+              {{$t("i18n.ChildPersons")}}
+            </b-dropdown-item>
+            <b-dropdown-item href="#">
+              <b-icon  width="1.1em" height="1.1em" class="btn-icon" icon="diagram3-fill"></b-icon>
+              {{$t("i18n.ChildOrganizations")}}
+            </b-dropdown-item>
+          </b-dropdown>
+        </div>
       </template>
     </b-table>
   </div>
   <div class="card-inner bd-t-1">
-    <div class="app-block-between-md g-3">
+    <div class="app-block-between-md g-3 tpagin">
       <div class="g">
-        kk
+        <b-pagination
+          v-model="currentPage"
+          :total-rows="organizations.totalElements"
+          :per-page="filter.size"
+          aria-controls="my-table"
+          @click.native="finds"
+          
+        ></b-pagination>
       </div>
-      <div class="g">
-        44
-      </div>
+      
     </div>
   </div>
 </b-card>
@@ -108,6 +140,7 @@ export default {
     return {
       selectMode: 'multi',
       selected: [],
+      currentPage: 1,
       fields : [
         {
           label: this.$t("i18n.Organisation"),
@@ -143,14 +176,27 @@ export default {
     }
   },
   methods: {
+    current(){
+      return this.filter.page-1
+    },
     onRowSelected(items) {
-      this.selected = items
+      let arr = [];
+      items.forEach((val) => {
+        arr.push(val.id);
+      })
+      this.$store.dispatch("organisation/setSelectedIds", arr);
     },
     getStatus(val){
       return this.$t("i18n.status")[val].label;
     },
     getStatusCss(val){
       return this.$t("i18n.status")[val].class;
+    },
+    finds(){
+      this.filter.page = this.currentPage - 1;
+
+      this.$store.dispatch("organisation/find", this.filter);
+      this.$store.dispatch("organisation/setFilter", this.filter);
     },
     findByParent(parentCode) {
       return new Promise((resolve, reject) => {
@@ -165,14 +211,11 @@ export default {
           });
       });
     }
-
-    
   },
   computed: {
-   ...mapGetters({organizations: 'organisation/results', filter: 'organisation/filter'})
+   ...mapGetters({organizations: 'organisation/results', filter: 'organisation/filter', selectedIds: 'organisation/selectedIds'})
   },
   created() {
-  
     this.$store.dispatch("organisation/find", this.filter);
   }
 }

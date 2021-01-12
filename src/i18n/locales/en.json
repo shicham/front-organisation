@@ -5,14 +5,20 @@
     "DESC":"DESC",
     "ASC":"ASC",
     "Type":"Type",
+    "Types":"Types",
+    "TYPES":"TYPES",
     "Hierarchy":"Hierarchy",
     "Manager":"Manager",
     
     "OOrganisation": "Organisation",
     "InternalCode": "InternalCode",
     "status": {
-    		"Status":"Status",
-    		"active":"Active",
-    		"inactive":"Inactive"
-    	}
+    		"Active":"Active",
+    		"Inactive":"Inactive",
+    		"Pending":"Pending"
+    },
+    "type": {
+            "Admin":"Admin",
+            "CEO":"CEO"
+    }
   }

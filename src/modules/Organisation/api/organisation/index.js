@@ -19,9 +19,29 @@ export function save(data) {
 
 export function deletes(data) {
   return request({
-    url: '/organization',
+    url: '/service-organization/organization/deletes',
     method: 'delete',
     data
+  })
+}
+
+export function status(data) {
+  let ids = data.ids;
+  console.log(ids)
+  return request({
+    url: '/service-organization/organization/status/'+data.objectId,
+    method: 'put',
+    data:ids
+  })
+}
+
+export function type(data) {
+  let ids = data.ids;
+  console.log(ids)
+  return request({
+    url: '/service-organization/organization/type/'+data.objectId,
+    method: 'put',
+    data:ids
   })
 }
 

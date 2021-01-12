@@ -1,5 +1,7 @@
 {
         "bulkAction":"Bulk Action",
+        "BulkExport": "Bulk export",
+        "ViewDetails": "View Details",
         "Filters": "Filters",
         "selected-s": "selected(s)",
         "OrganisationsLists":"Organisations Lists",
@@ -22,6 +24,7 @@
         "DESC":"DESC",
         "ASC":"ASC",
         "Type":"Type",
+        "TYPES":"TYPES",
         "Name":"Name",
         "Hierarchy":"Hierarchy",
         "Manager":"Manager",
@@ -31,6 +34,7 @@
         "primaryEmail": "Primary email",
         "primaryPhone": "Primary phone",
         "Attachement": "Attachement",
+        "STATUS":"STATUS",
         "status": {
         		"Status":{"label":"Status" , "class":"text-success"},
         		"active":{"label":"Active" , "class":"text-success"},
@@ -42,7 +46,14 @@
                 "Status":"Status",
                 "activiteActive":"Active",
                 "inactive":"Inactive"
+        },
+        "organization": {
+            "type": {
+                "Admin":"Admin",
+                "CEO":"CEO"
+            }
         }
+        
         
   
   }
